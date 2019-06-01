@@ -1,1889 +1,684 @@
 <template>
     <div>
-        <div id="top-banner-and-menu">
-            <div class="container">
-                <div class="col-xs-12 col-sm-4 col-md-3 sidemenu-holder">
-                    <!-- ================================== TOP NAVIGATION ================================== -->
-                    <div class="side-menu animate-dropdown">
-                        <div class="head">
-                            <i class="fa fa-list"></i> {{ $t("index.allDepartments") }}
-                        </div>
-                        <nav class="yamm megamenu-horizontal" role="navigation">
-                            <ul class="nav">
-                                <li :class="`dropdown menu-item ${item.expand ? 'open' : ''}`"
-                                        v-for="item in app.allDepartments"
-                                        @click="departmentItemClick(item)"
-                                        v-click-outside="e => departmentItemOutClick(e, item)">
-                                    <a href="javascript:void(0)"
-                                       class="dropdown-toggle"
-                                       data-toggle="dropdown"
-                                       :aria-expanded="item.expand">{{ item.name }}</a>
-                                    <ul class="dropdown-menu mega-menu">
-                                        <li class="yamm-content">
-                                            <!--                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;-->
-                                            <div class="row">
-                                                <div class="col-xs-12 col-lg-4">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="javascript:void(0)">Computer Cases &amp; Accessories</a>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)">CPUs, Processors</a></li>
-                                                        <li>
-                                                            <a href="javascript:void(0)">Fans, Heatsinks &amp; Cooling</a>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)">Graphics, Video Cards</a></li>
-                                                        <li><a href="javascript:void(0)">Interface, Add-On Cards</a></li>
-                                                        <li><a href="javascript:void(0)">Laptop Replacement Parts</a></li>
-                                                        <li><a href="javascript:void(0)">Memory (RAM)</a></li>
-                                                        <li><a href="javascript:void(0)">Motherboards</a></li>
-                                                        <li>
-                                                            <a href="javascript:void(0)">Motherboard &amp; CPU Combos</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="javascript:void(0)">Motherboard Components &amp; Accs</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="col-xs-12 col-lg-4">
-                                                    <ul>
-                                                        <li><a href="javascript:void(0)">Power Supplies Power</a></li>
-                                                        <li><a href="javascript:void(0)">Power Supply Testers Sound</a></li>
-                                                        <li><a href="javascript:void(0)">Sound Cards (Internal)</a></li>
-                                                        <li>
-                                                            <a href="javascript:void(0)">Video Capture &amp; TV Tuner Cards</a>
-                                                        </li>
-                                                        <li><a href="javascript:void(0)">Other</a></li>
-                                                    </ul>
-                                                </div>
-
-                                                <div class="dropdown-banner-holder">
-                                                    <a href="javascript:void(0)"
-                                                    ><img
-                                                            alt=""
-                                                            src="assets/images/banners/banner-side.png"
-                                                    /></a>
-                                                </div>
-                                            </div>
-                                            <!--                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;-->
-                                        </li>
-                                    </ul>
-                                </li>
-                                <!--.menu-item -->
-                                <!-- todo open menu-->
-                                <!-- <li class="dropdown menu-item">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Value of the Day</a>
-                                  <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                      <div class="row">
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Power Supplies Power</a></li>
-                                            <li><a href="#">Power Supply Testers Sound</a></li>
-                                            <li><a href="#">Sound Cards (Internal)</a></li>
-                                            <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                            <li><a href="#">Other</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="dropdown-banner-holder">
-                                          <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a>
-                                        </div>
-                                      </div>
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                    </li>
-                                  </ul>
-                                </li>&lt;!&ndash; /.menu-item &ndash;&gt;
-
-                                <li class="dropdown menu-item">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Laptops &amp; Computers</a>
-                                  <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                      <div class="row">
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Power Supplies Power</a></li>
-                                            <li><a href="#">Power Supply Testers Sound</a></li>
-                                            <li><a href="#">Sound Cards (Internal)</a></li>
-                                            <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                            <li><a href="#">Other</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="dropdown-banner-holder">
-                                          <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a>
-                                        </div>
-                                      </div>
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                    </li>
-                                  </ul>
-                                </li>&lt;!&ndash; /.menu-item &ndash;&gt;
-
-                                <li class="dropdown menu-item">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cameras &amp; Photography</a>
-                                  <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                      <div class="row">
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Power Supplies Power</a></li>
-                                            <li><a href="#">Power Supply Testers Sound</a></li>
-                                            <li><a href="#">Sound Cards (Internal)</a></li>
-                                            <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                            <li><a href="#">Other</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="dropdown-banner-holder">
-                                          <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a>
-                                        </div>
-                                      </div>
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                    </li>
-                                  </ul>
-                                </li>&lt;!&ndash; /.menu-item &ndash;&gt;
-
-                                <li class="dropdown menu-item">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Smart Phones &amp; Tablets</a>
-                                  <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                      <div class="row">
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Power Supplies Power</a></li>
-                                            <li><a href="#">Power Supply Testers Sound</a></li>
-                                            <li><a href="#">Sound Cards (Internal)</a></li>
-                                            <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                            <li><a href="#">Other</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="dropdown-banner-holder">
-                                          <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a>
-                                        </div>
-                                      </div>
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                    </li>
-                                  </ul>
-                                </li>&lt;!&ndash; /.menu-item &ndash;&gt;
-
-                                <li class="dropdown menu-item">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Video Games &amp; Consoles</a>
-                                  <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                      <div class="row">
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Power Supplies Power</a></li>
-                                            <li><a href="#">Power Supply Testers Sound</a></li>
-                                            <li><a href="#">Sound Cards (Internal)</a></li>
-                                            <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                            <li><a href="#">Other</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="dropdown-banner-holder">
-                                          <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a>
-                                        </div>
-                                      </div>
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                    </li>
-                                  </ul>
-                                </li>&lt;!&ndash; /.menu-item &ndash;&gt;
-
-                                <li class="dropdown menu-item">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">TV &amp; Audio</a>
-                                  <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                      <div class="row">
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Power Supplies Power</a></li>
-                                            <li><a href="#">Power Supply Testers Sound</a></li>
-                                            <li><a href="#">Sound Cards (Internal)</a></li>
-                                            <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                            <li><a href="#">Other</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="dropdown-banner-holder">
-                                          <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a>
-                                        </div>
-                                      </div>
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                    </li>
-                                  </ul>
-                                </li>&lt;!&ndash; /.menu-item &ndash;&gt;
-
-                                <li class="dropdown menu-item">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gadgets</a>
-                                  <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                      <div class="row">
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Power Supplies Power</a></li>
-                                            <li><a href="#">Power Supply Testers Sound</a></li>
-                                            <li><a href="#">Sound Cards (Internal)</a></li>
-                                            <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                            <li><a href="#">Other</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="dropdown-banner-holder">
-                                          <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a>
-                                        </div>
-                                      </div>
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                    </li>
-                                  </ul>
-                                </li>&lt;!&ndash; /.menu-item &ndash;&gt;
-
-                                <li class="dropdown menu-item">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Car Electronic &amp; GPS</a>
-                                  <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                      <div class="row">
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Power Supplies Power</a></li>
-                                            <li><a href="#">Power Supply Testers Sound</a></li>
-                                            <li><a href="#">Sound Cards (Internal)</a></li>
-                                            <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                            <li><a href="#">Other</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="dropdown-banner-holder">
-                                          <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a>
-                                        </div>
-                                      </div>
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                    </li>
-                                  </ul>
-                                </li>&lt;!&ndash; /.menu-item &ndash;&gt;
-
-                                <li class="dropdown menu-item">
-                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accessories</a>
-                                  <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                      <div class="row">
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Computer Cases &amp; Accessories</a></li>
-                                            <li><a href="#">CPUs, Processors</a></li>
-                                            <li><a href="#">Fans, Heatsinks &amp; Cooling</a></li>
-                                            <li><a href="#">Graphics, Video Cards</a></li>
-                                            <li><a href="#">Interface, Add-On Cards</a></li>
-                                            <li><a href="#">Laptop Replacement Parts</a></li>
-                                            <li><a href="#">Memory (RAM)</a></li>
-                                            <li><a href="#">Motherboards</a></li>
-                                            <li><a href="#">Motherboard &amp; CPU Combos</a></li>
-                                            <li><a href="#">Motherboard Components &amp; Accs</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="col-xs-12 col-lg-4">
-                                          <ul>
-                                            <li><a href="#">Power Supplies Power</a></li>
-                                            <li><a href="#">Power Supply Testers Sound</a></li>
-                                            <li><a href="#">Sound Cards (Internal)</a></li>
-                                            <li><a href="#">Video Capture &amp; TV Tuner Cards</a></li>
-                                            <li><a href="#">Other</a></li>
-                                          </ul>
-                                        </div>
-
-                                        <div class="dropdown-banner-holder">
-                                          <a href="#"><img alt="" src="assets/images/banners/banner-side.png" /></a>
-                                        </div>
-                                      </div>
-                                      &lt;!&ndash; ================================== MEGAMENU VERTICAL ================================== &ndash;&gt;
-                                    </li>
-                                  </ul>
-                                </li>&lt;!&ndash; /.menu-item &ndash;&gt;
-
-                                <li><a href="http://themeforest.net/item/media-center-electronic-ecommerce-html-template/8178892?ref=shaikrilwan">Buy this Theme</a></li>-->
-                            </ul>
-                            <!-- /.nav -->
-                        </nav>
-                        <!-- /.megamenu-horizontal -->
-                    </div>
-                    <!-- /.side-menu -->
-                    <!-- ================================== TOP NAVIGATION : END ================================== -->
-                </div>
-                <!-- /.sidemenu-holder -->
-
-                <div class="col-xs-12 col-sm-8 col-md-9 homebanner-holder">
-                    <!-- ========================================== SECTION – HERO ========================================= -->
-                    <div id="hero">
-                        <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
-                            <div
-                                    class="item"
-                                    style="background-image: url(assets/images/sliders/slider01.jpg);"
-                            >
-                                <div class="container-fluid">
-                                    <div class="caption vertical-center text-left">
-                                        <div class="big-text fadeInDown-1">
-                                            Save up to a<span class="big"
-                                        ><span class="sign">$</span>400</span
-                                        >
-                                        </div>
-
-                                        <div class="excerpt fadeInDown-2">
-                                            on selected laptops<br/>
-                                            & desktop pcs or<br/>
-                                            smartphones
-                                        </div>
-                                        <div class="small fadeInDown-2">
-                                            terms and conditions apply
-                                        </div>
-                                        <div class="button-holder fadeInDown-3">
-                                            <a href="single-product.html" class="big le-button "
-                                            >shop now</a
-                                            >
-                                        </div>
-                                    </div>
-                                    <!-- /.caption -->
-                                </div>
-                                <!-- /.container-fluid -->
-                            </div>
-                            <!-- /.item -->
-
-                            <div
-                                    class="item"
-                                    style="background-image: url(assets/images/sliders/slider03.jpg);"
-                            >
-                                <div class="container-fluid">
-                                    <div class="caption vertical-center text-left">
-                                        <div class="big-text fadeInDown-1">
-                                            Want a<span class="big"
-                                        ><span class="sign">$</span>200</span
-                                        >Discount?
-                                        </div>
-
-                                        <div class="excerpt fadeInDown-2">
-                                            on selected <br/>desktop pcs<br/>
-                                        </div>
-                                        <div class="small fadeInDown-2">
-                                            terms and conditions apply
-                                        </div>
-                                        <div class="button-holder fadeInDown-3">
-                                            <a href="single-product.html" class="big le-button "
-                                            >shop now</a
-                                            >
-                                        </div>
-                                    </div>
-                                    <!-- /.caption -->
-                                </div>
-                                <!-- /.container-fluid -->
-                            </div>
-                            <!-- /.item -->
-                        </div>
-                        <!-- /.owl-carousel -->
-                    </div>
-                    <!-- ========================================= SECTION – HERO : END ========================================= -->
-                </div>
-                <!-- /.homebanner-holder -->
-            </div>
-            <!-- /.container -->
-        </div>
-        <!-- /#top-banner-and-menu -->
-
-        <!-- ========================================= HOME BANNERS ========================================= -->
-        <section id="banner-holder" class="wow fadeInUp">
-            <div class="container">
-                <div class="col-xs-12 col-lg-6 no-margin banner">
-                    <a href="category-grid-2.html">
-                        <div class="banner-text theblue">
-                            <h1>New Life</h1>
-                            <span class="tagline">Introducing New Category</span>
-                        </div>
-                        <img
-                                class="banner-image"
-                                alt=""
-                                src="assets/images/blank.gif"
-                                data-echo="assets/images/banners/banner-narrow-01.jpg"
-                        />
-                    </a>
-                </div>
-                <div class="col-xs-12 col-lg-6 no-margin text-right banner">
-                    <a href="category-grid-2.html">
-                        <div class="banner-text right">
-                            <h1>Time &amp; Style</h1>
-                            <span class="tagline">Checkout new arrivals</span>
-                        </div>
-                        <img
-                                class="banner-image"
-                                alt=""
-                                src="assets/images/blank.gif"
-                                data-echo="assets/images/banners/banner-narrow-02.jpg"
-                        />
-                    </a>
-                </div>
-            </div>
-            <!-- /.container -->
-        </section>
-        <!-- /#banner-holder -->
-        <!-- ========================================= HOME BANNERS : END ========================================= -->
-
-        <div id="products-tab" class="wow fadeInUp">
-            <div class="container">
-                <div class="tab-holder">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs">
-                        <li class="active">
-                            <a href="#featured" data-toggle="tab">featured</a>
-                        </li>
-                        <li><a href="#new-arrivals" data-toggle="tab">new arrivals</a></li>
-                        <li><a href="#top-sales" data-toggle="tab">top sales</a></li>
-                    </ul>
-
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="featured">
-                            <div class="product-grid-holder">
-                                <div
-                                        class="col-sm-4 col-md-3  no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="ribbon red"><span>sale</span></div>
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-01.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount green">-50% sale</div>
-                                            <div class="title">
-                                                <a href="single-product.html"
-                                                >VAIO Fit Laptop - Windows 8 SVF14322CXW</a
-                                                >
-                                            </div>
-                                            <div class="brand">sony</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="ribbon blue"><span>new!</span></div>
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-02.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount clear"></div>
-                                            <div class="title">
-                                                <a href="single-product.html">White lumia 9001</a>
-                                            </div>
-                                            <div class="brand">nokia</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-03.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount clear"></div>
-                                            <div class="title">
-                                                <a href="single-product.html">POV Action Cam</a>
-                                            </div>
-                                            <div class="brand">sony</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="ribbon red"><span>sale</span></div>
-                                        <div class="ribbon green"><span>bestseller</span></div>
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-04.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount clear"></div>
-                                            <div class="title">
-                                                <a href="single-product.html"
-                                                >Netbook Acer TravelMate B113-E-10072</a
-                                                >
-                                            </div>
-                                            <div class="brand">acer</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="loadmore-holder text-center">
-                                <a class="btn-loadmore" href="#">
-                                    <i class="fa fa-plus"></i>
-                                    load more products</a
-                                >
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="new-arrivals">
-                            <div class="product-grid-holder">
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="ribbon blue"><span>new!</span></div>
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-02.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount clear"></div>
-                                            <div class="title">
-                                                <a href="single-product.html">White lumia 9001</a>
-                                            </div>
-                                            <div class="brand">nokia</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="ribbon red"><span>sale</span></div>
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-01.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount green">-50% sale</div>
-                                            <div class="title">
-                                                <a href="single-product.html"
-                                                >VAIO Fit Laptop - Windows 8 SVF14322CXW</a
-                                                >
-                                            </div>
-                                            <div class="brand">sony</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="ribbon red"><span>sale</span></div>
-                                        <div class="ribbon green"><span>bestseller</span></div>
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-04.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount clear"></div>
-                                            <div class="title">
-                                                <a href="single-product.html"
-                                                >Netbook Acer TravelMate B113-E-10072</a
-                                                >
-                                            </div>
-                                            <div class="brand">acer</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-03.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount clear"></div>
-                                            <div class="title">
-                                                <a href="single-product.html">POV Action Cam</a>
-                                            </div>
-                                            <div class="brand">sony</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="loadmore-holder text-center">
-                                <a class="btn-loadmore" href="#">
-                                    <i class="fa fa-plus"></i>
-                                    load more products</a
-                                >
-                            </div>
-                        </div>
-
-                        <div class="tab-pane" id="top-sales">
-                            <div class="product-grid-holder">
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="ribbon red"><span>sale</span></div>
-                                        <div class="ribbon green"><span>bestseller</span></div>
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-04.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount clear"></div>
-                                            <div class="title">
-                                                <a href="single-product.html"
-                                                >Netbook Acer TravelMate B113-E-10072</a
-                                                >
-                                            </div>
-                                            <div class="brand">acer</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-03.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount clear"></div>
-                                            <div class="title">
-                                                <a href="single-product.html">POV Action Cam</a>
-                                            </div>
-                                            <div class="brand">sony</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="ribbon blue"><span>new!</span></div>
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-02.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount clear"></div>
-                                            <div class="title">
-                                                <a href="single-product.html">White lumia 9001</a>
-                                            </div>
-                                            <div class="brand">nokia</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div
-                                        class="col-sm-4 col-md-3 no-margin product-item-holder hover"
-                                >
-                                    <div class="product-item">
-                                        <div class="ribbon red"><span>sale</span></div>
-                                        <div class="image">
-                                            <img
-                                                    alt=""
-                                                    src="assets/images/blank.gif"
-                                                    data-echo="assets/images/products/product-01.jpg"
-                                            />
-                                        </div>
-                                        <div class="body">
-                                            <div class="label-discount green">-50% sale</div>
-                                            <div class="title">
-                                                <a href="single-product.html"
-                                                >VAIO Fit Laptop - Windows 8 SVF14322CXW</a
-                                                >
-                                            </div>
-                                            <div class="brand">sony</div>
-                                        </div>
-                                        <div class="prices">
-                                            <div class="price-prev">$1399.00</div>
-                                            <div class="price-current pull-right">$1199.00</div>
-                                        </div>
-
-                                        <div class="hover-area">
-                                            <div class="add-cart-button">
-                                                <a href="single-product.html" class="le-button"
-                                                >add to cart</a
-                                                >
-                                            </div>
-                                            <div class="wish-compare">
-                                                <a class="btn-add-to-wishlist" href="#"
-                                                >add to wishlist</a
-                                                >
-                                                <a class="btn-add-to-compare" href="#">compare</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="loadmore-holder text-center">
-                                <a class="btn-loadmore" href="#">
-                                    <i class="fa fa-plus"></i>
-                                    load more products</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========================================= BEST SELLERS ========================================= -->
-        <section id="bestsellers" class="color-bg wow fadeInUp">
-            <div class="container">
-                <h1 class="section-title">Best Sellers</h1>
-
-                <div class="product-grid-holder medium">
-                    <div class="col-xs-12 col-md-7 no-margin">
-                        <div class="row no-margin">
-                            <div
-                                    class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover"
-                            >
-                                <div class="product-item">
-                                    <div class="image">
-                                        <img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/product-05.jpg"
-                                        />
-                                    </div>
-                                    <div class="body">
-                                        <div class="label-discount clear"></div>
-                                        <div class="title">
-                                            <a href="single-product.html"
-                                            >beats studio headphones official one</a
-                                            >
-                                        </div>
-                                        <div class="brand">beats</div>
-                                    </div>
-                                    <div class="prices">
-                                        <div class="price-current text-right">$1199.00</div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="add-cart-button">
-                                            <a href="single-product.html" class="le-button"
-                                            >Add to cart</a
-                                            >
-                                        </div>
-                                        <div class="wish-compare">
-                                            <a class="btn-add-to-wishlist" href="#"
-                                            >Add to Wishlist</a
-                                            >
-                                            <a class="btn-add-to-compare" href="#">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item-holder -->
-
-                            <div
-                                    class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover"
-                            >
-                                <div class="product-item">
-                                    <div class="image">
-                                        <img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/product-06.jpg"
-                                        />
-                                    </div>
-                                    <div class="body">
-                                        <div class="label-discount clear"></div>
-                                        <div class="title">
-                                            <a href="single-product.html"
-                                            >playstasion 4 with four games and pad</a
-                                            >
-                                        </div>
-                                        <div class="brand">acer</div>
-                                    </div>
-                                    <div class="prices">
-                                        <div class="price-current text-right">$1199.00</div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="add-cart-button">
-                                            <a href="single-product.html" class="le-button"
-                                            >Add to cart</a
-                                            >
-                                        </div>
-                                        <div class="wish-compare">
-                                            <a class="btn-add-to-wishlist" href="#"
-                                            >Add to Wishlist</a
-                                            >
-                                            <a class="btn-add-to-compare" href="#">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item-holder -->
-
-                            <div
-                                    class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover"
-                            >
-                                <div class="product-item">
-                                    <div class="image">
-                                        <img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/product-07.jpg"
-                                        />
-                                    </div>
-                                    <div class="body">
-                                        <div class="label-discount clear"></div>
-                                        <div class="title">
-                                            <a href="single-product.html"
-                                            >EOS rebel t5i DSLR Camera with 18-55mm IS STM lens</a
-                                            >
-                                        </div>
-                                        <div class="brand">canon</div>
-                                    </div>
-                                    <div class="prices">
-                                        <div class="price-current text-right">$1199.00</div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="add-cart-button">
-                                            <a href="single-product.html" class="le-button"
-                                            >Add to cart</a
-                                            >
-                                        </div>
-                                        <div class="wish-compare">
-                                            <a class="btn-add-to-wishlist" href="#"
-                                            >Add to Wishlist</a
-                                            >
-                                            <a class="btn-add-to-compare" href="#">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item-holder -->
-                        </div>
-                        <!-- /.row -->
-
-                        <div class="row no-margin">
-                            <div
-                                    class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover"
-                            >
-                                <div class="product-item">
-                                    <div class="image">
-                                        <img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/product-08.jpg"
-                                        />
-                                    </div>
-                                    <div class="body">
-                                        <div class="label-discount clear"></div>
-                                        <div class="title">
-                                            <a href="single-product.html"
-                                            >fitbit zip wireless activity tracker - lime</a
-                                            >
-                                        </div>
-                                        <div class="brand">fitbit zip</div>
-                                    </div>
-                                    <div class="prices">
-                                        <div class="price-current text-right">$1199.00</div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="add-cart-button">
-                                            <a href="single-product.html" class="le-button"
-                                            >Add to cart</a
-                                            >
-                                        </div>
-                                        <div class="wish-compare">
-                                            <a class="btn-add-to-wishlist" href="#"
-                                            >Add to Wishlist</a
-                                            >
-                                            <a class="btn-add-to-compare" href="#">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item-holder -->
-
-                            <div
-                                    class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover"
-                            >
-                                <div class="product-item">
-                                    <div class="image">
-                                        <img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/product-09.jpg"
-                                        />
-                                    </div>
-                                    <div class="body">
-                                        <div class="label-discount clear"></div>
-                                        <div class="title">
-                                            <a href="single-product.html"
-                                            >PowerShot elph 115 16MP digital camera</a
-                                            >
-                                        </div>
-                                        <div class="brand">canon</div>
-                                    </div>
-                                    <div class="prices">
-                                        <div class="price-current text-right">$1199.00</div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="add-cart-button">
-                                            <a href="single-product.html" class="le-button"
-                                            >Add to cart</a
-                                            >
-                                        </div>
-                                        <div class="wish-compare">
-                                            <a class="btn-add-to-wishlist" href="#"
-                                            >Add to Wishlist</a
-                                            >
-                                            <a class="btn-add-to-compare" href="#">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item-holder -->
-
-                            <div
-                                    class="col-xs-12 col-sm-4 no-margin product-item-holder size-medium hover"
-                            >
-                                <div class="product-item">
-                                    <div class="image">
-                                        <img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/product-10.jpg"
-                                        />
-                                    </div>
-                                    <div class="body">
-                                        <div class="label-discount clear"></div>
-                                        <div class="title">
-                                            <a href="single-product.html"
-                                            >netbook acer travelMate b113-E-10072</a
-                                            >
-                                        </div>
-                                        <div class="brand">acer</div>
-                                    </div>
-                                    <div class="prices">
-                                        <div class="price-current text-right">$1199.00</div>
-                                    </div>
-                                    <div class="hover-area">
-                                        <div class="add-cart-button">
-                                            <a href="single-product.html" class="le-button"
-                                            >Add to cart</a
-                                            >
-                                        </div>
-                                        <div class="wish-compare">
-                                            <a class="btn-add-to-wishlist" href="#"
-                                            >Add to Wishlist</a
-                                            >
-                                            <a class="btn-add-to-compare" href="#">Compare</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item-holder -->
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-xs-12 col-md-5 no-margin">
-                        <div
-                                class="product-item-holder size-big single-product-gallery small-gallery"
-                        >
-                            <div
-                                    id="best-seller-single-product-slider"
-                                    class="single-product-slider owl-carousel"
-                            >
-                                <div class="single-product-gallery-item" id="slide1">
-                                    <a
-                                            data-rel="prettyphoto"
-                                            href="assets/images/products/product-gallery-01.jpg"
-                                    >
-                                        <img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/product-gallery-01.jpg"
-                                        />
-                                    </a>
-                                </div>
-                                <!-- /.single-product-gallery-item -->
-
-                                <div class="single-product-gallery-item" id="slide2">
-                                    <a
-                                            data-rel="prettyphoto"
-                                            href="assets/images/products/product-gallery-01.jpg"
-                                    >
-                                        <img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/product-gallery-01.jpg"
-                                        />
-                                    </a>
-                                </div>
-                                <!-- /.single-product-gallery-item -->
-
-                                <div class="single-product-gallery-item" id="slide3">
-                                    <a
-                                            data-rel="prettyphoto"
-                                            href="assets/images/products/product-gallery-01.jpg"
-                                    >
-                                        <img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/product-gallery-01.jpg"
-                                        />
-                                    </a>
-                                </div>
-                                <!-- /.single-product-gallery-item -->
-                            </div>
-                            <!-- /.single-product-slider -->
-
-                            <div class="gallery-thumbs clearfix">
-                                <ul>
-                                    <li>
-                                        <a
-                                                class="horizontal-thumb active"
-                                                data-target="#best-seller-single-product-slider"
-                                                data-slide="0"
-                                                href="#slide1"
-                                        ><img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/gallery-thumb-01.jpg"
-                                        /></a>
-                                    </li>
-                                    <li>
-                                        <a
-                                                class="horizontal-thumb"
-                                                data-target="#best-seller-single-product-slider"
-                                                data-slide="1"
-                                                href="#slide2"
-                                        ><img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/gallery-thumb-01.jpg"
-                                        /></a>
-                                    </li>
-                                    <li>
-                                        <a
-                                                class="horizontal-thumb"
-                                                data-target="#best-seller-single-product-slider"
-                                                data-slide="2"
-                                                href="#slide3"
-                                        ><img
-                                                alt=""
-                                                src="assets/images/blank.gif"
-                                                data-echo="assets/images/products/gallery-thumb-01.jpg"
-                                        /></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.gallery-thumbs -->
-
-                            <div class="body">
-                                <div class="label-discount clear"></div>
-                                <div class="title">
-                                    <a href="single-product.html"
-                                    >CPU intel core i5-4670k 3.4GHz BOX B82-12-122-41</a
-                                    >
-                                </div>
-                                <div class="brand">sony</div>
-                            </div>
-                            <div class="prices text-right">
-                                <div class="price-current inline">$1199.00</div>
-                                <a href="cart.html" class="le-button big inline">add to cart</a>
-                            </div>
-                        </div>
-                        <!-- /.product-item-holder -->
-                    </div>
-                    <!-- /.col -->
-                </div>
-                <!-- /.product-grid-holder -->
-            </div>
-            <!-- /.container -->
-        </section>
-        <!-- /#bestsellers -->
-        <!-- ========================================= BEST SELLERS : END ========================================= -->
-
-        <!-- ========================================= RECENTLY VIEWED ========================================= -->
-        <section id="recently-reviewd" class="wow fadeInUp">
-            <div class="container">
-                <div class="carousel-holder hover">
-                    <div class="title-nav">
-                        <h2 class="h1">Recently Viewed</h2>
-                        <div class="nav-holder">
-                            <a
-                                    href="#prev"
-                                    data-target="#owl-recently-viewed"
-                                    class="slider-prev btn-prev fa fa-angle-left"
-                            ></a>
-                            <a
-                                    href="#next"
-                                    data-target="#owl-recently-viewed"
-                                    class="slider-next btn-next fa fa-angle-right"
-                            ></a>
-                        </div>
-                    </div>
-                    <!-- /.title-nav -->
-
-                    <div
-                            id="owl-recently-viewed"
-                            class="owl-carousel product-grid-holder"
-                    >
-                        <div
-                                class="no-margin carousel-item product-item-holder size-small hover"
-                        >
-                            <div class="product-item">
-                                <div class="ribbon red"><span>sale</span></div>
-                                <div class="image">
-                                    <img
-                                            alt=""
-                                            src="assets/images/blank.gif"
-                                            data-echo="assets/images/products/product-11.jpg"
-                                    />
-                                </div>
-                                <div class="body">
-                                    <div class="title">
-                                        <a href="single-product.html"
-                                        >LC-70UD1U 70" class aquos 4K ultra HD</a
-                                        >
-                                    </div>
-                                    <div class="brand">Sharp</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-current text-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button"
-                                        >Add to Cart</a
-                                        >
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">Add to Wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">Compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item -->
-                        </div>
-                        <!-- /.product-item-holder -->
-
-                        <div
-                                class="no-margin carousel-item product-item-holder size-small hover"
-                        >
-                            <div class="product-item">
-                                <div class="ribbon blue"><span>new!</span></div>
-                                <div class="image">
-                                    <img
-                                            alt=""
-                                            src="assets/images/blank.gif"
-                                            data-echo="assets/images/products/product-12.jpg"
-                                    />
-                                </div>
-                                <div class="body">
-                                    <div class="title">
-                                        <a href="single-product.html"
-                                        >cinemizer OLED 3D virtual reality TV Video</a
-                                        >
-                                    </div>
-                                    <div class="brand">zeiss</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-current text-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button"
-                                        >Add to cart</a
-                                        >
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">Add to Wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">Compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item -->
-                        </div>
-                        <!-- /.product-item-holder -->
-
-                        <div
-                                class=" no-margin carousel-item product-item-holder size-small hover"
-                        >
-                            <div class="product-item">
-                                <div class="image">
-                                    <img
-                                            alt=""
-                                            src="assets/images/blank.gif"
-                                            data-echo="assets/images/products/product-13.jpg"
-                                    />
-                                </div>
-                                <div class="body">
-                                    <div class="title">
-                                        <a href="single-product.html"
-                                        >s2340T23" full HD multi-Touch Monitor</a
-                                        >
-                                    </div>
-                                    <div class="brand">dell</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-current text-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button"
-                                        >Add to cart</a
-                                        >
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">Add to Wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">Compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item -->
-                        </div>
-                        <!-- /.product-item-holder -->
-
-                        <div
-                                class=" no-margin carousel-item product-item-holder size-small hover"
-                        >
-                            <div class="product-item">
-                                <div class="ribbon blue"><span>new!</span></div>
-                                <div class="image">
-                                    <img
-                                            alt=""
-                                            src="assets/images/blank.gif"
-                                            data-echo="assets/images/products/product-14.jpg"
-                                    />
-                                </div>
-                                <div class="body">
-                                    <div class="title">
-                                        <a href="single-product.html"
-                                        >kardon BDS 7772/120 integrated 3D</a
-                                        >
-                                    </div>
-                                    <div class="brand">harman</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-current text-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button"
-                                        >Add to cart</a
-                                        >
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">Add to Wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">Compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item -->
-                        </div>
-                        <!-- /.product-item-holder -->
-
-                        <div
-                                class=" no-margin carousel-item product-item-holder size-small hover"
-                        >
-                            <div class="product-item">
-                                <div class="ribbon green"><span>bestseller</span></div>
-                                <div class="image">
-                                    <img
-                                            alt=""
-                                            src="assets/images/blank.gif"
-                                            data-echo="assets/images/products/product-15.jpg"
-                                    />
-                                </div>
-                                <div class="body">
-                                    <div class="title">
-                                        <a href="single-product.html"
-                                        >netbook acer travel B113-E-10072</a
-                                        >
-                                    </div>
-                                    <div class="brand">acer</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-current text-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button"
-                                        >Add to cart</a
-                                        >
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">Add to Wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">Compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item -->
-                        </div>
-                        <!-- /.product-item-holder -->
-
-                        <div
-                                class=" no-margin carousel-item product-item-holder size-small hover"
-                        >
-                            <div class="product-item">
-                                <div class="image">
-                                    <img
-                                            alt=""
-                                            src="assets/images/blank.gif"
-                                            data-echo="assets/images/products/product-16.jpg"
-                                    />
-                                </div>
-                                <div class="body">
-                                    <div class="title">
-                                        <a href="single-product.html"
-                                        >iPod touch 5th generation,64GB, blue</a
-                                        >
-                                    </div>
-                                    <div class="brand">apple</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-current text-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button"
-                                        >Add to cart</a
-                                        >
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">Add to Wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">Compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item -->
-                        </div>
-                        <!-- /.product-item-holder -->
-
-                        <div
-                                class=" no-margin carousel-item product-item-holder size-small hover"
-                        >
-                            <div class="product-item">
-                                <div class="image">
-                                    <img
-                                            alt=""
-                                            src="assets/images/blank.gif"
-                                            data-echo="assets/images/products/product-13.jpg"
-                                    />
-                                </div>
-                                <div class="body">
-                                    <div class="title">
-                                        <a href="single-product.html"
-                                        >s2340T23" full HD multi-Touch Monitor</a
-                                        >
-                                    </div>
-                                    <div class="brand">dell</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-current text-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button"
-                                        >Add to cart</a
-                                        >
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">Add to Wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">Compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item -->
-                        </div>
-                        <!-- /.product-item-holder -->
-
-                        <div
-                                class=" no-margin carousel-item product-item-holder size-small hover"
-                        >
-                            <div class="product-item">
-                                <div class="ribbon blue"><span>new!</span></div>
-                                <div class="image">
-                                    <img
-                                            alt=""
-                                            src="assets/images/blank.gif"
-                                            data-echo="assets/images/products/product-14.jpg"
-                                    />
-                                </div>
-                                <div class="body">
-                                    <div class="title">
-                                        <a href="single-product.html"
-                                        >kardon BDS 7772/120 integrated 3D</a
-                                        >
-                                    </div>
-                                    <div class="brand">harman</div>
-                                </div>
-                                <div class="prices">
-                                    <div class="price-current text-right">$1199.00</div>
-                                </div>
-                                <div class="hover-area">
-                                    <div class="add-cart-button">
-                                        <a href="single-product.html" class="le-button"
-                                        >Add to cart</a
-                                        >
-                                    </div>
-                                    <div class="wish-compare">
-                                        <a class="btn-add-to-wishlist" href="#">Add to Wishlist</a>
-                                        <a class="btn-add-to-compare" href="#">Compare</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.product-item -->
-                        </div>
-                        <!-- /.product-item-holder -->
-                    </div>
-                    <!-- /#recently-carousel -->
-                </div>
-                <!-- /.carousel-holder -->
-            </div>
-            <!-- /.container -->
-        </section>
-        <!-- /#recently-reviewd -->
-        <!-- ========================================= RECENTLY VIEWED : END ========================================= -->
-
-        <!-- ========================================= TOP BRANDS ========================================= -->
-        <section id="top-brands" class="wow fadeInUp">
-            <div class="container">
-                <div class="carousel-holder">
-                    <div class="title-nav">
-                        <h1>Top Brands</h1>
-                        <div class="nav-holder">
-                            <a
-                                    href="#prev"
-                                    data-target="#owl-brands"
-                                    class="slider-prev btn-prev fa fa-angle-left"
-                            ></a>
-                            <a
-                                    href="#next"
-                                    data-target="#owl-brands"
-                                    class="slider-next btn-next fa fa-angle-right"
-                            ></a>
-                        </div>
-                    </div>
-                    <!-- /.title-nav -->
-
-                    <div id="owl-brands" class="owl-carousel brands-carousel">
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img alt="" src="assets/images/brands/brand-01.jpg"/>
-                            </a>
-                        </div>
-                        <!-- /.carousel-item -->
-
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img alt="" src="assets/images/brands/brand-02.jpg"/>
-                            </a>
-                        </div>
-                        <!-- /.carousel-item -->
-
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img alt="" src="assets/images/brands/brand-03.jpg"/>
-                            </a>
-                        </div>
-                        <!-- /.carousel-item -->
-
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img alt="" src="assets/images/brands/brand-04.jpg"/>
-                            </a>
-                        </div>
-                        <!-- /.carousel-item -->
-
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img alt="" src="assets/images/brands/brand-01.jpg"/>
-                            </a>
-                        </div>
-                        <!-- /.carousel-item -->
-
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img alt="" src="assets/images/brands/brand-02.jpg"/>
-                            </a>
-                        </div>
-                        <!-- /.carousel-item -->
-
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img alt="" src="assets/images/brands/brand-03.jpg"/>
-                            </a>
-                        </div>
-                        <!-- /.carousel-item -->
-
-                        <div class="carousel-item">
-                            <a href="#">
-                                <img alt="" src="assets/images/brands/brand-04.jpg"/>
-                            </a>
-                        </div>
-                        <!-- /.carousel-item -->
-                    </div>
-                    <!-- /.brands-caresoul -->
-                </div>
-                <!-- /.carousel-holder -->
-            </div>
-            <!-- /.container -->
-        </section>
-        <!-- /#top-brands -->
-        <!-- ========================================= TOP BRANDS : END ========================================= -->
+        <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
+            <col class="col0">
+            <col class="col1">
+            <col class="col2">
+            <col class="col3">
+            <col class="col4">
+            <col class="col5">
+            <col class="col6">
+            <col class="col7">
+            <col class="col8">
+            <tbody>
+            <tr class="row0">
+                <td class="column0 style1 s">Name:</td>
+                <td class="column1 style2 null"></td>
+                <td class="column2 style3 null"></td>
+                <td class="column3 style3 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style1 s">Date:</td>
+                <td class="column6 style5 null"></td>
+                <td class="column7 style3 null"></td>
+                <td class="column8 style3 null"></td>
+            </tr>
+            <tr class="row1">
+                <td class="column0 style4 null"></td>
+                <td class="column1 style4 null"></td>
+                <td class="column2 style4 null"></td>
+                <td class="column3 style4 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style4 null"></td>
+                <td class="column6 style4 null"></td>
+                <td class="column7 style4 null"></td>
+                <td class="column8 style4 null"></td>
+            </tr>
+            <tr class="row2">
+                <td class="column0 style33 s style35" colspan="4">INCOME</td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style33 s style35" colspan="4">ANALYSIS</td>
+            </tr>
+            <tr class="row3">
+                <td class="column0 style6 s">Earned Income</td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style8 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style10 s">How Much Do You Keep?</td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row4">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Earned #1</td>
+                <td class="column2 style13 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style12 s">Cash Flow/Total Income</td>
+                <td class="column7 style14 f">#DIV/0!</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row5">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Earned #2</td>
+                <td class="column2 style15 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style16 s">***should be increasing</td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row6">
+                <td class="column0 style6 null"></td>
+                <td class="column1 style30 s">Earned Total</td>
+                <td class="column2 style17 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row7">
+                <td class="column0 style6 s">Passive Income</td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style17 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style10 s">Does Your Money Work For You?</td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row8">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Real Estate (NET)</td>
+                <td class="column2 style13 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style12 s">Passive+Portfolio/Total Inc</td>
+                <td class="column7 style14 f">#DIV/0!</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row9">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style7 s">Business (NET)</td>
+                <td class="column2 style13 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style16 s">***should be increasing</td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row10">
+                <td class="column0 style6 null"></td>
+                <td class="column1 style30 s">Passive Total</td>
+                <td class="column2 style18 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row11">
+                <td class="column0 style6 s">Portfolio Income</td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style17 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style10 s">How Much Do You Pay In Taxes?</td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row12">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style7 s">Interest</td>
+                <td class="column2 style13 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style12 s">Income Taxes/Total Income</td>
+                <td class="column7 style14 f">#DIV/0!</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row13">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style7 s">Dividends</td>
+                <td class="column2 style13 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row14">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style7 s">Royalties</td>
+                <td class="column2 style15 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style10 s">How Much Goes to Housing?</td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row15">
+                <td class="column0 style6 null"></td>
+                <td class="column1 style30 s">Portfolio Total</td>
+                <td class="column2 style17 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style12 s">Housing Expenses/Income</td>
+                <td class="column7 style19 f">#DIV/0!</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row16">
+                <td class="column0 style6 s">TOTAL INCOME</td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style20 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style16 s">***keep under 33 percent</td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row17">
+                <td class="column0 style6 null"></td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style17 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row18">
+                <td class="column0 style36 s style38" colspan="4">EXPENSES</td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style10 s">How Much Do You Spend on Doodads?</td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row19">
+                <td class="column0 style6 s">Expenses</td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style8 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style12 s">Doodad Total/Banker Assets</td>
+                <td class="column7 style14 f">#DIV/0!</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row20">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Taxes (Income)</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style16 s">***keep under 33 percent</td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row21">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Taxes (Real Estate)</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style16 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row22">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Home Mortgage (or Rent)</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style10 s">What Is Your Annual Return On Assets?</td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row23">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Utilities</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style12 s">Pass+Port/Rich Dad Assets</td>
+                <td class="column7 style14 f">#DIV/0!</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row24">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Maintenance</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style16 s">***should be increasing</td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row25">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Home Insurance</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row26">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Food and Clothing</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style10 s">How Wealthy Are You?</td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row27">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Other Expenses</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style12 s">Rich Dad Assets/Expenses</td>
+                <td class="column7 style22 f">#DIV/0!</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row28">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Tithing</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style16 s">***measured in months</td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row29">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Credit Card #1</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style4 null"></td>
+                <td class="column7 style4 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row30">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Credit Card #2</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style10 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row31">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Car Loan #1</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style12 null"></td>
+                <td class="column7 style22 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row32">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Car Loan #2</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style16 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row33">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">School Loan #1</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row34">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">School Loan #2</td>
+                <td class="column2 style23 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row35">
+                <td class="column0 style6 s">TOTAL EXPENSES</td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style24 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row36">
+                <td class="column0 style6 null"></td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style8 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row37">
+                <td class="column0 style6 s">NET MONTHLY CASH FLOW</td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style24 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style11 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row38">
+                <td class="column0 style25 null"></td>
+                <td class="column1 style26 null"></td>
+                <td class="column2 style27 null"></td>
+                <td class="column3 style28 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style25 null"></td>
+                <td class="column6 style26 null"></td>
+                <td class="column7 style26 null"></td>
+                <td class="column8 style28 null"></td>
+            </tr>
+            <tr class="row39">
+                <td class="column0 style4 null"></td>
+                <td class="column1 style4 null"></td>
+                <td class="column2 style29 null"></td>
+                <td class="column3 style4 null"></td>
+                <td class="column4 style4 null"></td>
+                <td class="column5 style4 null"></td>
+                <td class="column6 style4 null"></td>
+                <td class="column7 style4 null"></td>
+                <td class="column8 style4 null"></td>
+            </tr>
+            <tr class="row40">
+                <td class="column0 style36 s style37" colspan="4">ASSETS</td>
+                <td class="column4 style37 s style38" colspan="5">LIABILITIES</td>
+            </tr>
+            <tr class="row41">
+                <td class="column0 style6 s">ASSETS</td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style8 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style30 s">LIABILITIES</td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row42">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Bank Accounts</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style12 s">Credit Cards</td>
+                <td class="column7 style21 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row43">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Stocks</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style12 s">Car Loans</td>
+                <td class="column7 style21 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row44">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Bonds</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style12 s">School Loans</td>
+                <td class="column7 style21 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row45">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Receivables</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style12 s">Home Mortgage</td>
+                <td class="column7 style21 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row46">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Real Estate</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style12 s">Personal Loans</td>
+                <td class="column7 style21 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row47">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style31 s">(fair market value less mortgage)</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style12 s">Other Debt</td>
+                <td class="column7 style23 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row48">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Business Value (NET)</td>
+                <td class="column2 style23 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style30 s">TOTAL LIABILITIES</td>
+                <td class="column6 style30 null"></td>
+                <td class="column7 style24 f">0</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row49">
+                <td class="column0 style6 s">ASSETS TOTAL</td>
+                <td class="column1 style30 null"></td>
+                <td class="column2 style24 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row50">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style7 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row51">
+                <td class="column0 style6 s">DOODADS</td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style7 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row52">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Home</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row53">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Car(s)</td>
+                <td class="column2 style21 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row54">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style12 s">Other</td>
+                <td class="column2 style23 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row55">
+                <td class="column0 style6 s">DOODADS TOTAL</td>
+                <td class="column1 style30 null"></td>
+                <td class="column2 style24 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row56">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style7 null"></td>
+                <td class="column2 style7 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style7 null"></td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row57">
+                <td class="column0 style6 s">TOTAL ASSETS per Banker</td>
+                <td class="column1 style30 null"></td>
+                <td class="column2 style32 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style30 s">NET WORTH per Banker</td>
+                <td class="column6 style30 null"></td>
+                <td class="column7 style32 f">0</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row58">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style31 s">(Assets Total + Doodads)</td>
+                <td class="column2 style8 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style31 s">(Total Assets per Banker minus Total Liabilities)</td>
+                <td class="column7 style8 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row59">
+                <td class="column0 style6 s">TOTAL ASSETS per Rich Dad</td>
+                <td class="column1 style30 null"></td>
+                <td class="column2 style32 f">0</td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style30 s">NET WORTH per Rich Dad</td>
+                <td class="column6 style30 null"></td>
+                <td class="column7 style32 f">0</td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row60">
+                <td class="column0 style11 null"></td>
+                <td class="column1 style31 s">(Assets Total Only, No Doodads)</td>
+                <td class="column2 style7 null"></td>
+                <td class="column3 style9 null"></td>
+                <td class="column4 style7 null"></td>
+                <td class="column5 style7 null"></td>
+                <td class="column6 style31 s">(Total Assets per Rich Dad minus Total Liabilities)</td>
+                <td class="column7 style7 null"></td>
+                <td class="column8 style9 null"></td>
+            </tr>
+            <tr class="row61">
+                <td class="column0 style25 null"></td>
+                <td class="column1 style26 null"></td>
+                <td class="column2 style26 null"></td>
+                <td class="column3 style28 null"></td>
+                <td class="column4 style26 null"></td>
+                <td class="column5 style26 null"></td>
+                <td class="column6 style26 null"></td>
+                <td class="column7 style26 null"></td>
+                <td class="column8 style28 null"></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
@@ -1912,4 +707,170 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+    @page { margin-left: 0.5in; margin-right: 0.5in; margin-top: 0.5in; margin-bottom: 0.5in; }
+    body { margin-left: 0.5in; margin-right: 0.5in; margin-top: 0.5in; margin-bottom: 0.5in; }
+    html { font-family:Calibri, Arial, Helvetica, sans-serif; font-size:11pt; background-color:white }
+    a.comment-indicator:hover + div.comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em }
+    a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em }
+    div.comment { display:none }
+    table { border-collapse:collapse; page-break-after:always }
+    .gridlines td { border:1px dotted black }
+    .gridlines th { border:1px dotted black }
+    .b { text-align:center }
+    .e { text-align:center }
+    .f { text-align:right }
+    .inlineStr { text-align:left }
+    .n { text-align:right }
+    .s { text-align:left }
+    td.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white }
+    th.style0 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Arial'; font-size:10pt; background-color:white }
+    td.style1 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style1 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style2 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style2 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style3 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style3 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style4 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style4 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style5 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style5 { vertical-align:bottom; border-bottom:1px solid #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style6 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style6 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style7 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style7 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style8 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style8 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style9 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:2px solid #4600A5 !important; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style9 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:2px solid #4600A5 !important; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style10 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style10 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style11 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style11 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style12 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style12 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style13 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:#C0C0C0 }
+    th.style13 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:#C0C0C0 }
+    td.style14 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style14 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style15 { vertical-align:bottom; border-bottom:3px double #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:#C0C0C0 }
+    th.style15 { vertical-align:bottom; border-bottom:3px double #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:#C0C0C0 }
+    td.style16 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:8pt; background-color:white }
+    th.style16 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:8pt; background-color:white }
+    td.style17 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style17 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style18 { vertical-align:bottom; border-bottom:none #000000; border-top:3px double #000000 !important; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style18 { vertical-align:bottom; border-bottom:none #000000; border-top:3px double #000000 !important; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style19 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style19 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style20 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style20 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style21 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:#C0C0C0 }
+    th.style21 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:#C0C0C0 }
+    td.style22 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style22 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style23 { vertical-align:bottom; border-bottom:3px double #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:#C0C0C0 }
+    th.style23 { vertical-align:bottom; border-bottom:3px double #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:#C0C0C0 }
+    td.style24 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style24 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style25 { vertical-align:bottom; border-bottom:2px solid #4600A5 !important; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style25 { vertical-align:bottom; border-bottom:2px solid #4600A5 !important; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style26 { vertical-align:bottom; border-bottom:2px solid #4600A5 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style26 { vertical-align:bottom; border-bottom:2px solid #4600A5 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style27 { vertical-align:bottom; border-bottom:2px solid #4600A5 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style27 { vertical-align:bottom; border-bottom:2px solid #4600A5 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style28 { vertical-align:bottom; border-bottom:2px solid #4600A5 !important; border-top:none #000000; border-left:none #000000; border-right:2px solid #4600A5 !important; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style28 { vertical-align:bottom; border-bottom:2px solid #4600A5 !important; border-top:none #000000; border-left:none #000000; border-right:2px solid #4600A5 !important; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style29 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style29 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style30 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style30 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style31 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-style:italic; color:#000000; font-family:'Tahoma'; font-size:6pt; background-color:white }
+    th.style31 { vertical-align:bottom; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-style:italic; color:#000000; font-family:'Tahoma'; font-size:6pt; background-color:white }
+    td.style32 { vertical-align:bottom; border-bottom:3px double #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    th.style32 { vertical-align:bottom; border-bottom:3px double #000000 !important; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#000000; font-family:'Tahoma'; font-size:10pt; background-color:white }
+    td.style33 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:2px solid #4600A5 !important; border-left:2px solid #4600A5 !important; border-right:none #000000; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    th.style33 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:2px solid #4600A5 !important; border-left:2px solid #4600A5 !important; border-right:none #000000; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    td.style34 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:2px solid #4600A5 !important; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    th.style34 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:2px solid #4600A5 !important; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    td.style35 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:2px solid #4600A5 !important; border-left:none #000000; border-right:2px solid #4600A5 !important; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    th.style35 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:2px solid #4600A5 !important; border-left:none #000000; border-right:2px solid #4600A5 !important; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    td.style36 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    th.style36 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:2px solid #4600A5 !important; border-right:none #000000; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    td.style37 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    th.style37 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    td.style38 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:2px solid #4600A5 !important; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    th.style38 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:2px solid #4600A5 !important; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
+    table.sheet0 col.col0 { width:24.39999972pt }
+    table.sheet0 col.col1 { width:98.27777665pt }
+    table.sheet0 col.col2 { width:65.74444369pt }
+    table.sheet0 col.col3 { width:4.74444439pt }
+    table.sheet0 col.col4 { width:7.45555547pt }
+    table.sheet0 col.col5 { width:27.78888857pt }
+    table.sheet0 col.col6 { width:103.02222104pt }
+    table.sheet0 col.col7 { width:65.74444369pt }
+    table.sheet0 col.col8 { width:6.09999993pt }
+    table.sheet0 tr { height:12pt }
+    table.sheet0 tr.row0 { height:13pt }
+    table.sheet0 tr.row1 { height:14pt }
+    table.sheet0 tr.row2 { height:13pt }
+    table.sheet0 tr.row3 { height:13pt }
+    table.sheet0 tr.row4 { height:13pt }
+    table.sheet0 tr.row5 { height:14pt }
+    table.sheet0 tr.row6 { height:14pt }
+    table.sheet0 tr.row7 { height:13pt }
+    table.sheet0 tr.row8 { height:13pt }
+    table.sheet0 tr.row9 { height:14pt }
+    table.sheet0 tr.row10 { height:14pt }
+    table.sheet0 tr.row11 { height:13pt }
+    table.sheet0 tr.row12 { height:13pt }
+    table.sheet0 tr.row13 { height:13pt }
+    table.sheet0 tr.row14 { height:14pt }
+    table.sheet0 tr.row15 { height:13pt }
+    table.sheet0 tr.row16 { height:13pt }
+    table.sheet0 tr.row17 { height:13pt }
+    table.sheet0 tr.row18 { height:13pt }
+    table.sheet0 tr.row19 { height:13pt }
+    table.sheet0 tr.row20 { height:13pt }
+    table.sheet0 tr.row21 { height:13pt }
+    table.sheet0 tr.row22 { height:13pt }
+    table.sheet0 tr.row23 { height:13pt }
+    table.sheet0 tr.row24 { height:13pt }
+    table.sheet0 tr.row25 { height:13pt }
+    table.sheet0 tr.row26 { height:13pt }
+    table.sheet0 tr.row27 { height:13pt }
+    table.sheet0 tr.row28 { height:13pt }
+    table.sheet0 tr.row29 { height:13pt }
+    table.sheet0 tr.row30 { height:13pt }
+    table.sheet0 tr.row31 { height:13pt }
+    table.sheet0 tr.row32 { height:13pt }
+    table.sheet0 tr.row33 { height:13pt }
+    table.sheet0 tr.row34 { height:14pt }
+    table.sheet0 tr.row35 { height:13pt }
+    table.sheet0 tr.row36 { height:13pt }
+    table.sheet0 tr.row37 { height:13pt }
+    table.sheet0 tr.row38 { height:14pt }
+    table.sheet0 tr.row39 { height:13pt }
+    table.sheet0 tr.row40 { height:13pt }
+    table.sheet0 tr.row41 { height:13pt }
+    table.sheet0 tr.row42 { height:13pt }
+    table.sheet0 tr.row43 { height:13pt }
+    table.sheet0 tr.row44 { height:13pt }
+    table.sheet0 tr.row45 { height:13pt }
+    table.sheet0 tr.row46 { height:13pt }
+    table.sheet0 tr.row47 { height:14pt }
+    table.sheet0 tr.row48 { height:14pt }
+    table.sheet0 tr.row49 { height:13pt }
+    table.sheet0 tr.row50 { height:13pt }
+    table.sheet0 tr.row51 { height:13pt }
+    table.sheet0 tr.row52 { height:13pt }
+    table.sheet0 tr.row53 { height:13pt }
+    table.sheet0 tr.row54 { height:14pt }
+    table.sheet0 tr.row55 { height:13pt }
+    table.sheet0 tr.row56 { height:13pt }
+    table.sheet0 tr.row57 { height:14pt }
+    table.sheet0 tr.row58 { height:13pt }
+    table.sheet0 tr.row59 { height:14pt }
+    table.sheet0 tr.row60 { height:13pt }
+    table.sheet0 tr.row61 { height:14pt }
+</style>
