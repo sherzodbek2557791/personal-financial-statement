@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding: 16px;">
         <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines">
             <col class="col0">
             <col class="col1">
@@ -801,15 +801,15 @@
     th.style37 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
     td.style38 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:2px solid #4600A5 !important; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
     th.style38 { vertical-align:bottom; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:2px solid #4600A5 !important; font-weight:bold; color:#FFFFFF; font-family:'Tahoma'; font-size:10pt; background-color:#4600A5 }
-    table.sheet0 col.col0 { width:24.39999972pt }
-    table.sheet0 col.col1 { width:98.27777665pt }
-    table.sheet0 col.col2 { width:65.74444369pt }
-    table.sheet0 col.col3 { width:4.74444439pt }
-    table.sheet0 col.col4 { width:7.45555547pt }
-    table.sheet0 col.col5 { width:27.78888857pt }
-    table.sheet0 col.col6 { width:103.02222104pt }
-    table.sheet0 col.col7 { width:65.74444369pt }
-    table.sheet0 col.col8 { width:6.09999993pt }
+    table.sheet0 col.col0 { width:6.051587302%; }
+    table.sheet0 col.col1 { width:24.37996032%; }
+    table.sheet0 col.col2 { width:16.29464286%; }
+    table.sheet0 col.col3 { width:1.165674603%; }
+    table.sheet0 col.col4 { width:1.860119048%; }
+    table.sheet0 col.col5 { width:6.89484127%; }
+    table.sheet0 col.col6 { width:25.54563492%; }
+    table.sheet0 col.col7 { width:16.29464286%; }
+    table.sheet0 col.col8 { width:1.512896825%; }
     table.sheet0 tr { height:12pt }
     table.sheet0 tr.row0 { height:13pt }
     table.sheet0 tr.row1 { height:14pt }
