@@ -1,0 +1,39 @@
+keycloak.configurationFile: classpath:keycloak.json
+spring:
+  main.allow-bean-definition-overriding: true
+  jackson.serialization.FAIL_ON_EMPTY_BEANS: false
+  jpa.open-in-view: false
+  jpa.show-sql: false
+  jpa.properties.hibernate.jdbc.lob.non_contextual_creation: true
+  #  #Flyway
+  flyway:
+    url: jdbc:postgresql://localhost:5432/postgres
+    user: postgres
+    password: password
+    baseline-on-migrate: true
+    baseline-version: 0
+    enabled: true
+
+  datasource:
+    platform: postgres
+    name: mydatasource
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    url: jdbc:oracle:thin:@10.0.23.124:1521:appeal
+#    username: appeal
+#    password: appeal2019
+
+server.port: 8095
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.jooq.tools.LoggerListener: DEBUG
+
+hashids:
+  salt: "eYKM+jt6N!^LZ#au*?Eav$@YJdhSx=kt"
+  minLength: 4
+  alphabet: abcdef0123456789
