@@ -9,9 +9,10 @@
             <h2 class="newtext">Earned Income</h2>
             <button @click="addCashFlowEarnedIncome">Add</button>
             <div class="new_line1">
-            <div v-for="(item, index) in cashFlow.income.earnedIncome">
+            <div :key="`earnedIncome-${index}`" v-for="(item, index) in cashFlow.income.earnedIncome">
               <input class="newinput1" type="text" v-model="item.name">
               <input class="newinput2" type="text" v-model="item.amount">
+              <button v-if="cashFlow.income.earnedIncome.length > 1" @click="removeItem(cashFlow.income.earnedIncome, item, index)">-</button>
             </div>
             <div class="newsubtext">Earned Total: {{ cashFlowEarnedIncomeTotal }}</div>
             </div>
@@ -20,9 +21,10 @@
             <h2 class="newtext">Passive Income</h2>
             <button @click="addCashFlowPassiveIncome">Add</button>
             <div class="new_line1">
-            <div v-for="(item, index) in cashFlow.income.passiveIncome">
+            <div :key="`passiveIncome-${index}`" v-for="(item, index) in cashFlow.income.passiveIncome">
               <input class="newinput1" type="text" v-model="item.name">
               <input class="newinput2" type="text" v-model="item.amount">
+              <button v-if="cashFlow.income.passiveIncome.length > 1" @click="removeItem(cashFlow.income.passiveIncome, item, index)">-</button>
             </div>
             <div class="newsubtext">Passive Total: {{ cashFlowPassiveIncomeTotal }}</div>
             </div>
@@ -31,14 +33,13 @@
             <h2 class="newtext">Portfolio Income</h2>
             <button @click="addCashFlowPortfolioIncome">Add</button>
             <div class="new_line1">
-            <div v-for="(item, index) in cashFlow.income.portfolioIncome">
+            <div :key="`portfolioIncome-${index}`" v-for="(item, index) in cashFlow.income.portfolioIncome">
               <input class="newinput1" type="text" v-model="item.name">
               <input class="newinput2" type="text" v-model="item.amount">
+              <button v-if="cashFlow.income.portfolioIncome.length > 1" @click="removeItem(cashFlow.income.portfolioIncome, item, index)">-</button>
             </div>
             <div class="newsubtext">Portfolio Total: {{ cashFlowPortfolioIncomeTotal }}</div>
             </div>
-
-
           </div><!-- Portfolio Income END-->
           <div class="newsubtext"><!-- TOTAL INCOME BEGIN-->
             TOTAL INCOME: {{ cashFlowIncomeTotal }}
@@ -51,9 +52,10 @@
             <h2 class="newtext">Expenses</h2>
             <button @click="addCashFlowExpenses">Add</button>
             <div class="new_line1">
-            <div v-for="(item, index) in cashFlow.expenses">
+            <div :key="`expenses-${index}`" v-for="(item, index) in cashFlow.expenses">
               <input class="newinput1" type="text" v-model="item.name">
               <input class="newinput2" type="text" v-model="item.amount">
+              <button v-if="cashFlow.expenses.length > 1" @click="removeItem(cashFlow.expenses, item, index)">-</button>
             </div>
             </div>
           </div><!-- Earned Income END-->
@@ -84,9 +86,10 @@
           <h2 class="newtext">ASSETS</h2>
           <button @click="addCashFlowAssets">Add</button>
           <div class="new_line1">
-          <div v-for="(item, index) in cashFlow.assets.assets">
+          <div :key="`assets-${index}`" v-for="(item, index) in cashFlow.assets.assets">
             <input class="newinput1" type="text" v-model="item.name">
             <input class="newinput2" type="text" v-model="item.amount">
+            <button v-if="cashFlow.assets.assets.length > 1" @click="removeItem(cashFlow.assets.assets, item, index)">-</button>
           </div>
           <div class="newsubtext">ASSETS TOTAL: {{ cashFlowAssetsTotal }}</div>
           </div>
@@ -95,9 +98,10 @@
           <h2 class="newtext">DOODADS</h2>
           <button @click="addCashFlowDoodads">Add</button>
           <div class="new_line1">
-          <div v-for="(item, index) in cashFlow.assets.doodads">
+          <div :key="`doodads-${index}`" v-for="(item, index) in cashFlow.assets.doodads">
             <input class="newinput1" type="text" v-model="item.name">
             <input class="newinput2" type="text" v-model="item.amount">
+            <button v-if="cashFlow.assets.doodads.length > 1" @click="removeItem(cashFlow.assets.doodads, item, index)">-</button>
           </div>
           <div class="newsubtext">DOODADS TOTAL: {{ cashFlowDoodadsTotal }}</div>
           </div>
@@ -120,9 +124,10 @@
           <h2 class="newtext">LIABILITIES</h2>
           <button @click="addCashFlowLiabilities">Add</button>
           <div class="new_line1">
-          <div v-for="(item, index) in cashFlow.liabilities">
+          <div :key="`liabilities-${index}`" v-for="(item, index) in cashFlow.liabilities">
             <input class="newinput1" type="text" v-model="item.name">
             <input class="newinput2" type="text" v-model="item.amount">
+            <button v-if="cashFlow.liabilities.length > 1" @click="removeItem(cashFlow.liabilities, item, index)">-</button>
           </div>
           <div class="newsubtext">TOTAL LIABILITIES: {{ cashFlowLiabilitiesTotal }}</div>
           </div>
@@ -205,51 +210,30 @@ export default {
   methods: {
     addCashFlowEarnedIncome() {
       let {earnedIncome} = this.cashFlow.income;
-      let len = earnedIncome.length;
-      if(len === 0 || !earnedIncome[len - 1].name)return;
-
       earnedIncome.push({ name:'', amount: 0 });
     },
     addCashFlowPassiveIncome() {
       let {passiveIncome} = this.cashFlow.income;
-      let len = passiveIncome.length;
-      if(len === 0 || !passiveIncome[len - 1].name)return;
-
       passiveIncome.push({ name:'', amount: 0 });
     },
     addCashFlowPortfolioIncome() {
       let {portfolioIncome} = this.cashFlow.income;
-      let len = portfolioIncome.length;
-      if(len === 0 || !portfolioIncome[len - 1].name)return;
-
       portfolioIncome.push({ name:'', amount: 0 });
     },
     addCashFlowExpenses() {
       let {expenses} = this.cashFlow;
-      let len = expenses.length;
-      if(len === 0 || !expenses[len - 1].name)return;
-
       expenses.push({ name:'', amount: 0 });
     },
     addCashFlowAssets() {
       let {assets} = this.cashFlow.assets;
-      let len = assets.length;
-      if(len === 0 || !assets[len - 1].name)return;
-
       assets.push({ name:'', amount: 0 });
     },
     addCashFlowDoodads() {
-      let {doodads} = this.cashFlow.doodads;
-      let len = doodads.length;
-      if(len === 0 || !doodads[len - 1].name)return;
-
+      let {doodads} = this.cashFlow.assets;
       doodads.push({ name:'', amount: 0 });
     },
     addCashFlowLiabilities() {
       let {liabilities} = this.cashFlow;
-      let len = liabilities.length;
-      if(len === 0 || !liabilities[len - 1].name)return;
-
       liabilities.push({ name:'', amount: 0 });
     },
     calculateTotal(items, func){
@@ -261,6 +245,9 @@ export default {
           sum += Number(item.amount);
       }
       return sum;
+    },
+    removeItem(list, item, index){
+      list.splice(index, 1);
     }
   }
 };
