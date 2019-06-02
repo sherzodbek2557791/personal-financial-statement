@@ -2,70 +2,141 @@
   <div>
     <div>
 
-      <div style="display: inline-block;">
-        <div><!-- INCOME BEGIN -->
+      <div style="display: inline-table; width:50%;">
+        <div class="border_new"><!-- INCOME BEGIN -->
           <h1>INCOME</h1>
           <div><!-- Earned Income BEGIN-->
-            <h2>Earned Income</h2>
+            <h2 class="newtext">Earned Income</h2>
             <button @click="addCashFlowEarnedIncome">Add</button>
+            <div class="new_line1">
             <div v-for="(item, index) in cashFlow.income.earnedIncome">
-              <input type="text" v-model="item.name">
-              <input type="text" v-model="item.amount">
+              <input class="newinput1" type="text" v-model="item.name">
+              <input class="newinput2" type="text" v-model="item.amount">
             </div>
-            <div>Earned Total: {{ cashFlowEarnedIncomeTotal }}</div>
+            <div class="newsubtext">Earned Total: {{ cashFlowEarnedIncomeTotal }}</div>
+            </div>
           </div><!-- Earned Income END-->
           <div><!-- Passive Income BEGIN-->
-            <h2>Passive Income</h2>
+            <h2 class="newtext">Passive Income</h2>
             <button @click="addCashFlowPassiveIncome">Add</button>
+            <div class="new_line1">
             <div v-for="(item, index) in cashFlow.income.passiveIncome">
-              <input type="text" v-model="item.name">
-              <input type="text" v-model="item.amount">
+              <input class="newinput1" type="text" v-model="item.name">
+              <input class="newinput2" type="text" v-model="item.amount">
             </div>
-            <div>Passive Total: {{ cashFlowPassiveIncomeTotal }}</div>
+            <div class="newsubtext">Passive Total: {{ cashFlowPassiveIncomeTotal }}</div>
+            </div>
           </div><!-- Passive Income END-->
           <div><!-- Portfolio Income BEGIN-->
-            <h2>Portfolio Income</h2>
+            <h2 class="newtext">Portfolio Income</h2>
             <button @click="addCashFlowPortfolioIncome">Add</button>
+            <div class="new_line1">
             <div v-for="(item, index) in cashFlow.income.portfolioIncome">
-              <input type="text" v-model="item.name">
-              <input type="text" v-model="item.amount">
+              <input class="newinput1" type="text" v-model="item.name">
+              <input class="newinput2" type="text" v-model="item.amount">
             </div>
-            <div>Portfolio Total: {{ cashFlowPortfolioIncomeTotal }}</div>
-          </div><!-- Portfolio Income END-->
+            <div class="newsubtext">Portfolio Total: {{ cashFlowPortfolioIncomeTotal }}</div>
+            </div>
 
-          <div><!-- TOTAL INCOME BEGIN-->
+
+          </div><!-- Portfolio Income END-->
+          <div class="newsubtext"><!-- TOTAL INCOME BEGIN-->
             TOTAL INCOME: {{ cashFlowIncomeTotal }}
           </div><!-- TOTAL INCOME END-->
         </div><!-- INCOME BEGIN -->
 
-        <div><!-- EXPENSES BEGIN -->
+        <div class="border_new"><!-- EXPENSES BEGIN -->
           <h1>EXPENSES</h1>
           <div><!-- Earned Income BEGIN-->
-            <h2>Expenses</h2>
+            <h2 class="newtext">Expenses</h2>
             <button @click="addCashFlowExpenses">Add</button>
+            <div class="new_line1">
             <div v-for="(item, index) in cashFlow.expenses">
-              <input type="text" v-model="item.name">
-              <input type="text" v-model="item.amount">
+              <input class="newinput1" type="text" v-model="item.name">
+              <input class="newinput2" type="text" v-model="item.amount">
+            </div>
             </div>
           </div><!-- Earned Income END-->
 
-          <div><!-- TOTAL EXPENSES BEGIN-->
+          <div class="newsubtext"><!-- TOTAL EXPENSES BEGIN-->
             TOTAL EXPENSES: {{ cashFlowExpensesTotal }}
           </div><!-- TOTAL EXPENSES END-->
+
+          <div class="newsubtext"><!--  MONTHLY CASH FLOW BEGIN-->
+            NET MONTHLY CASH FLOW: {{ cashFlowTotal }}
+          </div><!--  MONTHLY CASH FLOW END-->
         </div><!-- EXPENSES BEGIN -->
 
-        <div><!--  MONTHLY CASH FLOW BEGIN-->
-          NET MONTHLY CASH FLOW: {{ cashFlowTotal }}
-        </div><!--  MONTHLY CASH FLOW END-->
 
       </div>
 
-
-      <div style="display: inline-block;">Right</div>
+      <div style="display: inline-table; width: 50%;">
+        <div class="border_new">
+        <h1>ANALYSIS</h1>
+        </div>
+      </div>
     </div>
     <div>
-      <div style="display: inline-block;">Left</div>
-      <div style="display: inline-block;">Right</div>
+      <div style="display: inline-table; width: 50%;">
+        <div class="border_new">
+        <h1>ASSETS</h1>
+        <div><!-- ASSETS BEGIN-->
+          <h2 class="newtext">ASSETS</h2>
+          <button @click="addCashFlowAssets">Add</button>
+          <div class="new_line1">
+          <div v-for="(item, index) in cashFlow.assets.assets">
+            <input class="newinput1" type="text" v-model="item.name">
+            <input class="newinput2" type="text" v-model="item.amount">
+          </div>
+          <div class="newsubtext">ASSETS TOTAL: {{ cashFlowAssetsTotal }}</div>
+          </div>
+        </div><!-- ASSETS END-->
+        <div><!-- DOODADS BEGIN-->
+          <h2 class="newtext">DOODADS</h2>
+          <button @click="addCashFlowDoodads">Add</button>
+          <div class="new_line1">
+          <div v-for="(item, index) in cashFlow.assets.doodads">
+            <input class="newinput1" type="text" v-model="item.name">
+            <input class="newinput2" type="text" v-model="item.amount">
+          </div>
+          <div class="newsubtext">DOODADS TOTAL: {{ cashFlowDoodadsTotal }}</div>
+          </div>
+        </div><!-- DOODADS END-->
+
+        <div class="newsubtext"><!--  TOTAL ASSETS per Banker BEGIN-->
+          TOTAL ASSETS per Banker (Assets Total + Doodads): {{ cashFlowTotalAssetsPerBanker }}
+        </div><!--  TOTAL ASSETS per Banker END-->
+
+        <div class="newsubtext"><!--  TOTAL ASSETS per Rich Dad BEGIN-->
+          TOTAL ASSETS per Rich Dad (Assets Total Only, No Doodads): {{ cashFlowTotalAssetsPerRichDad }}
+        </div><!--  TOTAL ASSETS per Rich Dad END-->
+        </div>
+
+      </div>
+      <div style="display: inline-table; width: 50%;">
+        <div class="border_new">
+        <h1>LIABILITIES</h1>
+        <div><!-- LIABILITIES BEGIN-->
+          <h2 class="newtext">LIABILITIES</h2>
+          <button @click="addCashFlowLiabilities">Add</button>
+          <div class="new_line1">
+          <div v-for="(item, index) in cashFlow.liabilities">
+            <input class="newinput1" type="text" v-model="item.name">
+            <input class="newinput2" type="text" v-model="item.amount">
+          </div>
+          <div class="newsubtext">TOTAL LIABILITIES: {{ cashFlowLiabilitiesTotal }}</div>
+          </div>
+        </div><!-- LIABILITIES END-->
+
+        <div class="newsubtext"><!--  	NET WORTH per Banker BEGIN-->
+          	NET WORTH per Banker (Total Assets per Banker minus Total Liabilities): {{ cashFlowTotalNetWorthPerBanker }}
+        </div><!--  	NET WORTH per Banker END-->
+
+        <div class="newsubtext"><!--  	NET WORTH per Rich Dad BEGIN-->
+          	NET WORTH per Rich Dad 	(Total Assets per Rich Dad minus Total Liabilities): {{ cashFlowTotalNetWorthRichDad }}
+        </div><!--  	NET WORTH per Rich Dad END-->
+      </div>
+      </div>
     </div>
   </div>
 </template>
@@ -81,11 +152,25 @@ export default {
           passiveIncome: [{ name: '', amount: 0 }],
           portfolioIncome: [{ name: '', amount: 0 }]
         },
-        expenses: [{ name: '', amount: 0 }]
+        expenses: [{ name: '', amount: 0 }],
+        assets: {
+          assets: [{ name: '', amount: 0 }],
+          doodads: [{ name: '', amount: 0 }]
+        },
+        liabilities: [{ name: '', amount: 0 }],
       }
     };
   },
   computed: {
+    cashFlowLiabilitiesTotal() {
+      return this.calculateTotal(this.cashFlow.liabilities);
+    },
+    cashFlowDoodadsTotal() {
+      return this.calculateTotal(this.cashFlow.assets.doodads);
+    },
+    cashFlowAssetsTotal() {
+      return this.calculateTotal(this.cashFlow.assets.assets);
+    },
     cashFlowEarnedIncomeTotal() {
       return this.calculateTotal(this.cashFlow.income.earnedIncome);
     },
@@ -103,6 +188,18 @@ export default {
     },
     cashFlowTotal() {
       return this.cashFlowIncomeTotal - this.cashFlowExpensesTotal;
+    },
+    cashFlowTotalAssetsPerBanker() {
+      return this.cashFlowAssetsTotal + this.cashFlowDoodadsTotal;
+    },
+    cashFlowTotalAssetsPerRichDad() {
+      return this.cashFlowAssetsTotal;
+    },
+    cashFlowTotalNetWorthPerBanker() {
+      return this.cashFlowTotalAssetsPerBanker - this.cashFlowLiabilitiesTotal;
+    },
+    cashFlowTotalNetWorthRichDad() {
+      return this.cashFlowTotalAssetsPerRichDad - this.cashFlowLiabilitiesTotal;
     }
   },
   methods: {
@@ -111,28 +208,49 @@ export default {
       let len = earnedIncome.length;
       if(len === 0 || !earnedIncome[len - 1].name)return;
 
-      this.cashFlow.income.earnedIncome.push({ name:'', amount: 0 });
+      earnedIncome.push({ name:'', amount: 0 });
     },
     addCashFlowPassiveIncome() {
       let {passiveIncome} = this.cashFlow.income;
       let len = passiveIncome.length;
       if(len === 0 || !passiveIncome[len - 1].name)return;
 
-      this.cashFlow.income.passiveIncome.push({ name:'', amount: 0 });
+      passiveIncome.push({ name:'', amount: 0 });
     },
     addCashFlowPortfolioIncome() {
       let {portfolioIncome} = this.cashFlow.income;
       let len = portfolioIncome.length;
       if(len === 0 || !portfolioIncome[len - 1].name)return;
 
-      this.cashFlow.income.portfolioIncome.push({ name:'', amount: 0 });
+      portfolioIncome.push({ name:'', amount: 0 });
     },
     addCashFlowExpenses() {
       let {expenses} = this.cashFlow;
       let len = expenses.length;
       if(len === 0 || !expenses[len - 1].name)return;
 
-      this.cashFlow.income.expenses.push({ name:'', amount: 0 });
+      expenses.push({ name:'', amount: 0 });
+    },
+    addCashFlowAssets() {
+      let {assets} = this.cashFlow.assets;
+      let len = assets.length;
+      if(len === 0 || !assets[len - 1].name)return;
+
+      assets.push({ name:'', amount: 0 });
+    },
+    addCashFlowDoodads() {
+      let {doodads} = this.cashFlow.doodads;
+      let len = doodads.length;
+      if(len === 0 || !doodads[len - 1].name)return;
+
+      doodads.push({ name:'', amount: 0 });
+    },
+    addCashFlowLiabilities() {
+      let {liabilities} = this.cashFlow;
+      let len = liabilities.length;
+      if(len === 0 || !liabilities[len - 1].name)return;
+
+      liabilities.push({ name:'', amount: 0 });
     },
     calculateTotal(items, func){
       let sum = 0;
@@ -149,4 +267,51 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped></style>
+<style scoped>
+  h1 {
+    vertical-align: bottom;
+    text-align: center;
+    border-bottom: none #000000;
+    border-top: 2px solid #4600A5 !important;
+    border-left: none #000000;
+    border-right: 2px solid #4600A5 !important;
+    font-weight: bold;
+    color: #FFFFFF;
+    font-family: 'Tahoma';
+    margin-top: -1px;
+    font-size: 10pt;
+    background-color: #4600A5;
+  }
+  .border_new {
+    border: 2px solid #4600A5 !important;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: grid;
+  }
+  .newtext {
+    font-weight: bold;
+    color: #000000;
+    font-family: 'Tahoma';
+    font-size: 10pt;
+    width: 68%;
+    display: -webkit-inline-box;
+  }
+  .new_line1 {
+    width: 65%;
+    float: right;
+  }
+  .newinput1 {
+    width: 40%;
+    margin-right: 10%;
+  }
+  .newinput2 {
+    width: 40%;
+  }
+  .newsubtext {
+    font-weight: bold;
+    color: #000000;
+    font-family: 'Tahoma';
+    font-size: 10pt;
+  }
+</style>
