@@ -50,7 +50,7 @@ export default new Vuex.Store({
   },
   plugins: [
     createPersistedState({
-      key: "yabo-shop",
+      key: "finance-shop",
       paths: ["uiState", "cart"]
     })
   ]
