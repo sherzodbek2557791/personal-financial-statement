@@ -1,7 +1,7 @@
 import Index from "./components/Index.vue";
-import Blog from "./components/Blog.vue";
+import Calculator from "./components/Calculator.vue";
 
 export default [
   { path: "/", component: Index },
-  { path: "/blog", component: Blog }
+  { path: "/calculator", component: Calculator }
 ];

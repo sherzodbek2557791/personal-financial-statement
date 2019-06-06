@@ -148,7 +148,7 @@
 
 <script>
 export default {
-  name: "Blog",
+  name: "Calculator",
   data() {
     return {
       cashFlow: {
@@ -294,6 +294,12 @@ export default {
   }
   .newinput2 {
     width: 40%;
+    color: #000;
+    font-family: 'Tahoma';
+    font-size: 10pt;
+    background-color: silver;
+    border: 0;
+    text-align: end;
   }
   .newsubtext {
     font-weight: bold;
