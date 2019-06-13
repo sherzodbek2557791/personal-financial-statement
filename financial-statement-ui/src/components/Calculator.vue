@@ -75,6 +75,13 @@
       <div style="display: inline-table; width: 50%;">
         <div class="border_new">
         <h1>ANALYSIS</h1>
+
+          <span>TOTAL INCOME: test</span> <br>
+          <span>TOTAL CONSUMPTION: test</span> <br>
+          <span>----------------------</span> <br>
+          <span>TOTAL COMMON: test</span> <br>
+
+          <apexchart width="500" type="bar" :options="chartOptions" :series="series"></apexchart>
         </div>
       </div>
     </div>
@@ -163,7 +170,19 @@ export default {
           doodads: [{ name: '', amount: 0 }]
         },
         liabilities: [{ name: '', amount: 0 }],
-      }
+      },
+      chartOptions: {
+        chart: {
+          id: 'vuechart-example'
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+        }
+      },
+      series: [{
+        name: 'series-1',
+        data: [30, 40, 35, 50, 49, 60, 70, 91]
+      }]
     };
   },
   computed: {
