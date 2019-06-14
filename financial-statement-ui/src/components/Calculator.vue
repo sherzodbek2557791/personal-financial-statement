@@ -135,7 +135,7 @@
 
           <el-carousel :interval="4000" arrow=never height="50px" indicator-position=none>
             <el-carousel-item v-for="item in app.quotes" :key="item" style="text-align: center;">
-              <h3 class="medium" style="border: 1px solid red;">{{ item.text }}</h3>
+              <h3 class="medium">{{ item.text }}</h3>
             </el-carousel-item>
           </el-carousel>
 
