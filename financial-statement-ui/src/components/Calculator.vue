@@ -133,18 +133,28 @@
         <div class="border_new">
           <h1>ANALYSIS</h1>
 
-          <span>TOTAL INCOME: test</span> <br />
-          <span>TOTAL CONSUMPTION: test</span> <br />
-          <span>----------------------</span> <br />
-          <span>TOTAL COMMON: test</span> <br />
+          <el-carousel :interval="4000" arrow=never height="50px" indicator-position=none>
+            <el-carousel-item v-for="item in app.quotes" :key="item" style="text-align: center;">
+              <h3 class="medium" style="border: 1px solid red;">{{ item.text }}</h3>
+            </el-carousel-item>
+          </el-carousel>
 
-          <!--          <apexchart width="500" type="bar" :options="chartOptions" :series="series"></apexchart>-->
-          <apexchart
-            width="500"
-            type="donut"
-            :options="options"
-            :series="options.series"
-          ></apexchart>
+          <div>
+            <!--          <apexchart width="500" type="bar" :options="chartOptions" :series="series"></apexchart>-->
+            <apexchart
+                    style="display: inline-table; width: 50%;"
+                    type="donut"
+                    :options="chartOptions"
+                    :series="chartOptions.series"
+            ></apexchart>
+
+            <div style="display: inline-table; width: 50%;">
+              <span>TOTAL INCOME: {{ cashFlowIncomeTotal }}</span> <br />
+              <span>TOTAL CONSUMPTION: {{ cashFlowExpensesTotal }}</span> <br />
+              <span>----------------------</span> <br />
+              <span>TOTAL COMMON: {{ cashFlowTotal }}</span> <br />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -282,7 +292,7 @@ export default {
         liabilities: [{ name: "", amount: 0 }]
       },
 
-      options: {
+      chartOptions: {
         chart: {
           id: "analysis",
           type: "donut"
@@ -340,22 +350,7 @@ export default {
             }
           }
         }
-      },
-
-      chartOptions: {
-        chart: {
-          id: "vuechart-example"
-        },
-        xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
-        }
       }
-      /* series: [
-        {
-          name: "series-1",
-          data: [30, 40, 35, 50, 49, 60, 70, 91]
-        }
-      ]*/
     };
   },
   computed: {
